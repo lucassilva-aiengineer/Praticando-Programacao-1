@@ -1,7 +1,12 @@
+from funcoes_uteis import gerar_id
+
 class Jogador:
 
-    def __init__(self, id_, nome):
-        # self.id = id_
+    """
+        Uma classe que modela o objeto jogador
+    """
+    def __init__(self, nome):
+        self.id_ = gerar_id()
         self.nome = nome 
         self.score = 0
 
@@ -22,6 +27,8 @@ def main():
         jogador_1.aumentar_score()
 
     print(f"Placar: {jogador_1.score}")
+
+    print(f"ID: {jogador_1.id_}")
 
 
 if __name__ == '__main__':
