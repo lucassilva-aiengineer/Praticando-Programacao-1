@@ -15,8 +15,6 @@ def condicionais()-> None:
     else:
         print("Você é uma pessoa experiente!")
 
-
-
 def main():
     condicionais()
 
