@@ -46,6 +46,7 @@ class Funcionario:
         # while True:
         #     ... 
         time.sleep(1)
+        
         print("Salário Atual: ")
 
 
