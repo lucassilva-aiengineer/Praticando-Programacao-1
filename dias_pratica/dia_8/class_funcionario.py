@@ -2,6 +2,7 @@
 # Conceitos de flask linguagem de programação banco de dados e tudo mais.
 
 import time 
+import json 
 
 class Funcionario:
     """
@@ -31,8 +32,23 @@ class Funcionario:
 
         """
 
+# Toda grande caminhada começa com um único passo. 
     def salvar_dados(self):
-        """Um método que salva os dados em um banco de dados"""
+        """Um método que salva os dados em um banco de dados
+        Por enquanto vamos salvar em um arquivo Json"""
+
+        funcionario = {
+            "nome": self.nome,
+            "idade": self.idade, 
+            "funcao": self.funcao,
+            "salario": self.salario,
+            "descricao": self.descricao,
+        }
+
+        NOME_ARQUIVO = "dados\\colaboradores.json"
+        with open(NOME_ARQUIVO, 'a', encoding= 'utf-8') as arquivo:
+            json.dump(funcionario, arquivo, indent= 4)
+            print("Dados salvos em 'colaboradores.json'")
 
 
     def alterar_salario(self):
@@ -70,6 +86,12 @@ def teste():
     print(funcionario.exibir_funcionario())
 
     funcionario.alterar_salario()
+
+    funcionario.salvar_dados()
+
+    funcionario_2 = Funcionario("Marcos", 25, 50000, "CTO", "Líder de Tecnologia", 
+    100)
+
 
 def main():
 
